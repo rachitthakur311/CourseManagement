@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "143d7c0d-a10e-4e13-a9d4-aa38335d17e6",
+		"name": "Course Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Course",
+			"item": [
+				{
+					"name": "List All Course",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNjg0NzgwMWJjZmNhMTE2ODdkNGJhOSIsImlhdCI6MTYwMDY3NzYyMiwiZXhwIjoxNjAwNjgxMjIyfQ.mxN8e3w9gvtiotoyFoAyxhJucS5DL0rqM_WIBNVBsJQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{course_management_api_url}}/api/course",
+							"host": [
+								"{{course_management_api_url}}"
+							],
+							"path": [
+								"api",
+								"course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Course",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNjg0NzgwMWJjZmNhMTE2ODdkNGJhOSIsImlhdCI6MTYwMDY3NzYyMiwiZXhwIjoxNjAwNjgxMjIyfQ.mxN8e3w9gvtiotoyFoAyxhJucS5DL0rqM_WIBNVBsJQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"test\",\n    \"detail\":\"test details\",\n    \"price\":100,\n    \"duration\":\"1 months\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{course_management_api_url}}/api/course",
+							"host": [
+								"{{course_management_api_url}}"
+							],
+							"path": [
+								"api",
+								"course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Course",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNjg0NzgwMWJjZmNhMTE2ODdkNGJhOSIsImlhdCI6MTYwMDY3NzYyMiwiZXhwIjoxNjAwNjgxMjIyfQ.mxN8e3w9gvtiotoyFoAyxhJucS5DL0rqM_WIBNVBsJQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"_test\",\n    \"detail\":\"_test details\",\n    \"duration\":\"2 months\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{course_management_api_url}}/api/course/:id",
+							"host": [
+								"{{course_management_api_url}}"
+							],
+							"path": [
+								"api",
+								"course",
+								":id"
+							],
+							"variable": [
+								{
+									"description": "course id",
+									"key": "id",
+									"value": "5f686cdb6e4c1a307c215599"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Course",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNjg0NzgwMWJjZmNhMTE2ODdkNGJhOSIsImlhdCI6MTYwMDY3NzYyMiwiZXhwIjoxNjAwNjgxMjIyfQ.mxN8e3w9gvtiotoyFoAyxhJucS5DL0rqM_WIBNVBsJQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{course_management_api_url}}/api/course/:id",
+							"host": [
+								"{{course_management_api_url}}"
+							],
+							"path": [
+								"api",
+								"course",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5f686b4314bd632e5f48623a"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"test@gmail.com\", \n    \"password\":\"test1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{course_management_api_url}}/api/auth/login",
+							"host": [
+								"{{course_management_api_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"test\",\n    \"email\":\"test@gmail.com\",\n    \"phone\":\"1234567896\", \n    \"password\":\"test1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{course_management_api_url}}/api/auth/register",
+							"host": [
+								"{{course_management_api_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
