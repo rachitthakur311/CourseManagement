@@ -14,8 +14,9 @@ const getAllCourses = (req, res, next ) =>{
         })
     }
 }
-const createCourse =(req, res, next ) =>{    
+const createCourse =(req, res, next ) =>{   
     try {
+
         const {title = "", detail= "", price = null, duration= ""} = req.body;
         const userId = req.userId;
 
@@ -43,9 +44,9 @@ const createCourse =(req, res, next ) =>{
 }
 
 const updateCourse =   (req, res, next) =>{
-    const courseId = req.params.id;
-    const {title, detail, price, duration} = req.body;
-    course.findOne({_id: courseId}, function (err, course) {
+    const {title, detail, price, duration, id} = req.body;
+    course.findOne({_id: id}, function (err, course) {
+        console.log(course);
         if (err) {
             return res.status(500).json({
                 message: 'Error when getting course',
@@ -76,7 +77,7 @@ const updateCourse =   (req, res, next) =>{
 
 const deleteCourse =   (req, res, next) =>{
     try {
-        const courseId = req.params.id;
+        const courseId = req.body.id;
 
         course.findByIdAndRemove(courseId, function (err, course) {
             if (err) throw new Error(err);

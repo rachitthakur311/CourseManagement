@@ -4,12 +4,13 @@ const jwt       = require('jsonwebtoken');
 
 //summited password encrypted
 const register =async (req, res, next ) =>{
+    console.log(req.body);
     const {name,email,phone,password} = req.body;
 
     bcrypt.hash(password, 10, function(err, hashedPass){
         if(err){
             res.json({
-                error:err
+            error:err
             })
         }
         let newUser = new user({
@@ -44,12 +45,13 @@ const login =   (req, res, next) =>{
         if(!user) throw new Error('no user found!');
         
         bcrypt.compare(password, user.password, function(err, result){
-            if(err) throw new Error(err);
+          
+            if(err) throw new Error('err');
     
             if(!result) throw new Error('password does not match');
             if(result){
                 //send the username with token
-                let token = jwt.sign({id: user.id}, 'verySecretValue', {expiresIn: '1h'})
+                let token = jwt.sign({id: user.id}, 'verySecretValue', {expiresIn: '24h'})
                 res.json({
                     message: 'login successful!',
                     token
